@@ -1,0 +1,61 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/jake/Desktop/ToDoApp/Todo_App/bin/Debug/net8.0/wwwroot/_framework/blazor.webassembly.js",
+      "PackagePath": "staticwebassets/_framework/blazor.webassembly.js"
+    },
+    {
+      "Id": "/Users/jake/Desktop/ToDoApp/Todo_App/obj/Debug/net8.0/compressed/h1felqu4iu.gz",
+      "PackagePath": "staticwebassets/_framework/blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "/Users/jake/Desktop/ToDoApp/Todo_App/obj/Debug/net8.0/scopedcss/bundle/Todo_App.styles.css",
+      "PackagePath": "staticwebassets/Todo_App.styles.css"
+    },
+    {
+      "Id": "/Users/jake/Desktop/ToDoApp/Todo_App/wwwroot/css/app.css",
+      "PackagePath": "staticwebassets/css/app.css"
+    },
+    {
+      "Id": "/Users/jake/Desktop/ToDoApp/Todo_App/wwwroot/css/bootstrap/bootstrap.min.css",
+      "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/jake/Desktop/ToDoApp/Todo_App/wwwroot/css/bootstrap/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/jake/Desktop/ToDoApp/Todo_App/wwwroot/favicon.png",
+      "PackagePath": "staticwebassets/favicon.png"
+    },
+    {
+      "Id": "/Users/jake/Desktop/ToDoApp/Todo_App/wwwroot/icon-192.png",
+      "PackagePath": "staticwebassets/icon-192.png"
+    },
+    {
+      "Id": "/Users/jake/Desktop/ToDoApp/Todo_App/wwwroot/index.html",
+      "PackagePath": "staticwebassets/index.html"
+    },
+    {
+      "Id": "/Users/jake/Desktop/ToDoApp/Todo_App/wwwroot/sample-data/weather.json",
+      "PackagePath": "staticwebassets/sample-data/weather.json"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.Todo_App.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.Todo_App.props",
+      "PackagePath": "build\\Todo_App.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.Todo_App.props",
+      "PackagePath": "buildMultiTargeting\\Todo_App.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.Todo_App.props",
+      "PackagePath": "buildTransitive\\Todo_App.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
