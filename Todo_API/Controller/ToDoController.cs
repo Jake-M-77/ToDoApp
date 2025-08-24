@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Todo_API.Data;
 using Todo_API.Models;
@@ -15,5 +16,15 @@ namespace Todo_API.Controllers
         }
 
         //HTTP methods here :)
+
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllTasksAsync()
+        {
+            var tasks = await _context.ToDoList.ToListAsync();
+
+            return Ok(tasks);
+       
+        }
     }
 }

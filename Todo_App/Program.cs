@@ -12,6 +12,9 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp => new HttpClient
 {
     // Set the base address to the API endpoint
-    BaseAddress = new Uri("http://localhost:5136/") 
+    BaseAddress = new Uri("http://localhost:5136/")
 });
+
+builder.Services.AddScoped<ToDoService>();
+
 await builder.Build().RunAsync();

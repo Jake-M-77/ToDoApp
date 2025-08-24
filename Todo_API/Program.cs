@@ -26,6 +26,9 @@ builder.Services.AddCors(options =>
 builder.Services.AddControllers();
 var app = builder.Build();
 
+app.UseCors("AllowBlazorClient");
+
+
 // Enable Swagger only in development
 if (app.Environment.IsDevelopment())
 {
@@ -34,6 +37,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseAuthorization();
 
 app.MapControllers();
 

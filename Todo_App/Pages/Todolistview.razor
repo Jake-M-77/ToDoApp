@@ -1,0 +1,56 @@
+@page "/todolistview"
+
+@inject ToDoService ToDoService
+
+<PageTitle>Your To-Do List</PageTitle>
+
+<h1 style="text-align: center;">Your To-Do List</h1>
+
+@if (tasks == null)
+{
+    <p>Awaiting todos</p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <td>Taskname</td>
+                <td>Task Time</td>
+                <td>Task Completed</td>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @foreach (var task in tasks)
+            {
+                <tr>
+                    <td>@task.Name</td>
+                    <td>@task.dateTime</td>
+                    <td>@task.IsCompleted</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+}
+
+
+
+@code {
+    public List<ToDo> tasks { get; set; } = new List<ToDo>();
+
+    public async Task LoadToDos()
+    {
+        tasks = await ToDoService.ShowAllTasksAsync();
+    }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadToDos();
+    }
+}
