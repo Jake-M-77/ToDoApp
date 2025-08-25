@@ -1,17 +1,32 @@
 @page "/todocreator"
+@inject ToDoService ToDoService
 
 <PageTitle>To-Do Creator</PageTitle>
 
 <h1 style="text-align: center;">To Do Creator</h1>
 
-@* 
-<EditForm Model="">
 
-    <InputText />
-    <InputDate />
-    <InputCheckBox /> **Check this once uncommented
+<EditForm Model="newTodo" OnValidSubmit="submitToDo">
+
+    <InputText @bind-Value="newTodo.Name"/>
+    <InputDate @bind-Value="newTodo.dateTime"/>
+    
 
     <button class="btn btn-success">Add To Do</button>
-</EditForm> *@
+</EditForm>
 
 @* This will be edited out for the time being, until the backend is sorted out :) *@
+
+
+@code{
+    ToDo newTodo = new ToDo{
+        dateTime = DateTime.UtcNow,
+    };
+
+    public async Task submitToDo()
+    {
+        newTodo.dateTime = DateTime.SpecifyKind(newTodo.dateTime, DateTimeKind.Local).ToUniversalTime();
+
+        await ToDoService.CreateToDo(newTodo);
+    }
+}

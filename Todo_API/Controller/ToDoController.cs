@@ -43,7 +43,7 @@ namespace Todo_API.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("post")]
         public async Task<ActionResult<ToDo>> CreateToDo(ToDo newToDo)
         {
             if (newToDo != null)

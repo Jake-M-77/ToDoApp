@@ -11,7 +11,7 @@
 
 
 <div class="button-div">
-    <button class="btn btn-success">Create To-Do</button>
+    <button class="btn btn-success" onclick="@(() => NavigationManager.NavigateTo("/todocreator"))">Create To-Do</button>
 
     <button class="btn btn-warning" onclick="@(() => NavigationManager.NavigateTo("todolistview"))">Show To-Do's</button>
 

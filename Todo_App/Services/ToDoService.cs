@@ -38,7 +38,7 @@ public class ToDoService
     //simple createtodo method that can be used on the razor page
     public async Task<ToDo> CreateToDo(ToDo newToDo)
     {
-        var response = await _httpclient.PostAsJsonAsync<ToDo>("api/ToDo", newToDo);
+        var response = await _httpclient.PostAsJsonAsync<ToDo>("api/ToDo/post", newToDo);
 
         if (response.IsSuccessStatusCode)
         {
