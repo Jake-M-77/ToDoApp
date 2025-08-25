@@ -17,14 +17,48 @@ namespace Todo_API.Controllers
 
         //HTTP methods here :)
 
-
+        //Pull all tasks/Todo's
         [HttpGet]
-        public async Task<IActionResult> GetAllTasksAsync()
+        public async Task<ActionResult<List<ToDo>>> GetAllTasksAsync()
         {
             var tasks = await _context.ToDoList.ToListAsync();
 
-            return Ok(tasks);
-       
+            return tasks;
+
+        }
+
+        //Simple task get by id
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ToDo>> GetToDoByIdAsync(int id)
+        {
+            var task = await _context.ToDoList.FindAsync(id);
+
+            if (task != null)
+            {
+                return task;
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<ToDo>> CreateToDo(ToDo newToDo)
+        {
+            if (newToDo != null)
+            {
+                _context.ToDoList.Add(newToDo);
+                _context.SaveChangesAsync();
+                return CreatedAtAction(nameof(GetToDoByIdAsync), new { id = newToDo.Id }, newToDo);
+                
+            }
+            else
+            {
+                //This will be returned if there is something missing
+                //Or if there is another issue
+                return BadRequest();
+            }
         }
     }
 }

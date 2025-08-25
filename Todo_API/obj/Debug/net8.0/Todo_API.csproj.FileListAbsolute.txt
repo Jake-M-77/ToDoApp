@@ -133,3 +133,4 @@
 /Users/jake/Desktop/ToDoApp/Todo_API/obj/Debug/net8.0/Todo_API.pdb
 /Users/jake/Desktop/ToDoApp/Todo_API/obj/Debug/net8.0/Todo_API.genruntimeconfig.cache
 /Users/jake/Desktop/ToDoApp/Todo_API/obj/Debug/net8.0/ref/Todo_API.dll
+/Users/jake/Desktop/ToDoApp/Todo_API/obj/Debug/net8.0/Todo_API.sourcelink.json

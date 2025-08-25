@@ -12,7 +12,7 @@ public class ToDoService
         _httpclient = httpClient;
     }
 
-    public async Task<List<ToDo>> ShowAllTasksAsync()
+    public async Task<List<ToDo>> ShowAllToDosAsync()
     {
         var response = await _httpclient.GetAsync("api/ToDo");
 
@@ -21,5 +21,29 @@ public class ToDoService
             return await response.Content.ReadFromJsonAsync<List<ToDo>>();
         }
         return new List<ToDo>();
+    }
+
+    //simple todo searcher method that utilises searches for the todo id and can be used on the razor page
+    public async Task<ToDo> ShowToDoById(int id)
+    {
+        var response = await _httpclient.GetAsync($"api/ToDo/{id}");
+
+        if (response.IsSuccessStatusCode)
+        {
+            return await response.Content.ReadFromJsonAsync<ToDo>();
+        }
+        return null;
+    }
+    
+    //simple createtodo method that can be used on the razor page
+    public async Task<ToDo> CreateToDo(ToDo newToDo)
+    {
+        var response = await _httpclient.PostAsJsonAsync<ToDo>("api/ToDo", newToDo);
+
+        if (response.IsSuccessStatusCode)
+        {
+            return await response.Content.ReadFromJsonAsync<ToDo>();
+        }
+        return null;
     }
 }
