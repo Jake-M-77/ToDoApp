@@ -42,10 +42,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVG9Eb0NyZWF0b3IucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/jake/Desktop/ToDoApp/Todo_App/Pages/Todolistview.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVG9kb2xpc3R2aWV3LnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/jake/Desktop/ToDoApp/Todo_App/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvV2VhdGhlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -61,3 +57,7 @@ build_metadata.AdditionalFiles.CssScope = b-kor6q4mzhv
 [/Users/jake/Desktop/ToDoApp/Todo_App/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L05hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-e6qpa1xf1g
+
+[/Users/jake/Desktop/ToDoApp/Todo_App/Pages/Todolistview.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVG9kb2xpc3R2aWV3LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-7lfh9elfaj

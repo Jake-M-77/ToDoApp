@@ -13,7 +13,7 @@
 else
 {
     <table>
-        <thead>
+        <thead style="border: 1px solid black; background-color: grey;">
             <tr>
                 <td>Taskname</td>
                 <td>Task Time</td>
@@ -29,7 +29,7 @@ else
                 <tr>
                     <td>@task.Name</td>
                     <td>@task.dateTime</td>
-                    <td>@task.IsCompleted</td>
+                    <td>@(task.IsCompleted == true ? "Yes" : "No")</td>
                 </tr>
             }
 
