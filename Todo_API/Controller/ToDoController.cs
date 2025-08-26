@@ -49,8 +49,8 @@ namespace Todo_API.Controllers
             if (newToDo != null)
             {
                 _context.ToDoList.Add(newToDo);
-                _context.SaveChangesAsync();
-                return CreatedAtAction(nameof(GetToDoByIdAsync), new { id = newToDo.Id }, newToDo);
+                await _context.SaveChangesAsync();
+                return Ok();
 
             }
             else
