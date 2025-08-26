@@ -9,7 +9,7 @@ namespace Todo_API.Models
 
     public DateTime dateTime { get; set; }
 
-    public bool? IsCompleted { get; set; } //This has been set to nullable
+    public bool IsCompleted { get; set; } 
     }
 
 }

@@ -51,13 +51,28 @@ namespace Todo_API.Controllers
                 _context.ToDoList.Add(newToDo);
                 _context.SaveChangesAsync();
                 return CreatedAtAction(nameof(GetToDoByIdAsync), new { id = newToDo.Id }, newToDo);
-                
+
             }
             else
             {
                 //This will be returned if there is something missing
                 //Or if there is another issue
                 return BadRequest();
+            }
+        }
+
+        [HttpPut("update")]
+        public async Task<ActionResult<ToDo>> UpdateToDo(ToDo updatedToDo)
+        {
+            if (updatedToDo == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                _context.Entry(updatedToDo).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+                return Ok();
             }
         }
     }

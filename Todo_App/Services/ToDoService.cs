@@ -34,7 +34,7 @@ public class ToDoService
         }
         return null;
     }
-    
+
     //simple createtodo method that can be used on the razor page
     public async Task<ToDo> CreateToDo(ToDo newToDo)
     {
@@ -45,5 +45,13 @@ public class ToDoService
             return await response.Content.ReadFromJsonAsync<ToDo>();
         }
         return null;
+    }
+
+    //Simple Put method, updating a ToDo in the DB
+    public async Task<bool> UpdateToDo(ToDo updatedToDo)
+    {
+        var response = await _httpclient.PutAsJsonAsync<ToDo>("api/ToDo/update", updatedToDo);
+
+        return response.IsSuccessStatusCode;
     }
 }

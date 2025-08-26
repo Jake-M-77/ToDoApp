@@ -42,6 +42,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVG9Eb0NyZWF0b3IucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/jake/Desktop/ToDoApp/Todo_App/Pages/TodoEditPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVG9kb0VkaXRQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/jake/Desktop/ToDoApp/Todo_App/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvV2VhdGhlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

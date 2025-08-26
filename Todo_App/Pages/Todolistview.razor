@@ -1,6 +1,7 @@
 @page "/todolistview"
 
 @inject ToDoService ToDoService
+@inject NavigationManager NavigationManager
 
 <PageTitle>Your To-Do List</PageTitle>
 
@@ -26,7 +27,7 @@ else
 
             @foreach (var task in tasks)
             {
-                <tr>
+                <tr @onclick='() => NavigationManager.NavigateTo($"/todoeditor/{task.Id}")'>
                     <td>@task.Name</td>
                     <td>@task.dateTime</td>
                     <td>@(task.IsCompleted == true ? "Yes" : "No")</td>
