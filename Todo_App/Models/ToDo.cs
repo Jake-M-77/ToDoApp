@@ -6,4 +6,7 @@ public class ToDo
     public DateTime dateTime { get; set; }
 
     public bool IsCompleted { get; set; } 
+
+    public string Notes { get; set; }
+
 }
