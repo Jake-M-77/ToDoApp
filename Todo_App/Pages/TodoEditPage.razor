@@ -9,16 +9,29 @@
 }
 else
 {
-    <EditForm Model="AppendToDo" OnValidSubmit="UpdateToDo">
+    <div>
 
-        <InputText @bind-Value="AppendToDo.Name"/>
+        <EditForm Model="AppendToDo" OnValidSubmit="UpdateToDo">
+
+        <label>To-Do Name:</label>
+            <InputText @bind-Value="AppendToDo.Name"/>
+        <br>
+        <label>To-Do Due Date:</label>
         <InputDate @bind-Value="AppendToDo.dateTime" />
+        <br>
         <label>Task Completed?: </label>
+        
         <InputCheckbox @bind-Value="AppendToDo.IsCompleted" />
+        <br>
+        <InputTextArea @bind-Value="AppendToDo.Notes" />
+        <br>
 
         <button class="btn btn-success">Update ToDo</button>
 
-    </EditForm>
+        </EditForm>
+
+    </div>
+    
 }
 
 
