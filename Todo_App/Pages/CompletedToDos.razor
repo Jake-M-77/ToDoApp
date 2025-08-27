@@ -1,4 +1,4 @@
-@page "/todolistview"
+@page "/completedtodos"
 
 @inject ToDoService ToDoService
 @inject NavigationManager NavigationManager
@@ -46,7 +46,7 @@ else
 
     public async Task LoadToDos()
     {
-        tasks = await ToDoService.GetUncompletedToDos();
+        tasks = await ToDoService.GetcompletedToDos();
     }
 
 

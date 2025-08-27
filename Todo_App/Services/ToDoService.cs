@@ -50,4 +50,26 @@ public class ToDoService
 
         return response.IsSuccessStatusCode;
     }
+
+    public async Task<List<ToDo>> GetUncompletedToDos()
+    {
+        var response = await _httpclient.GetAsync("api/ToDo/uncompleted");
+
+        if (response.IsSuccessStatusCode)
+        {
+            return await response.Content.ReadFromJsonAsync<List<ToDo>>();
+        }
+        return new List<ToDo>();
+    }
+
+    public async Task<List<ToDo>> GetcompletedToDos()
+    {
+        var response = await _httpclient.GetAsync("api/ToDo/completed");
+
+        if (response.IsSuccessStatusCode)
+        {
+            return await response.Content.ReadFromJsonAsync<List<ToDo>>();
+        }
+        return new List<ToDo>();
+    }
 }

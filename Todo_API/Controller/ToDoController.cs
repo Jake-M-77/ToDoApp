@@ -75,5 +75,25 @@ namespace Todo_API.Controllers
                 return Ok();
             }
         }
+        //Get method that only retrieves uncompleted todo's
+        [HttpGet("uncompleted")]
+        public async Task<ActionResult<List<ToDo>>> UncompletedToDos()
+        {
+            var tasks = await _context.ToDoList
+            .Where(x => x.IsCompleted == false)
+            .ToListAsync();
+
+            return tasks;
+        }
+        //Get method that only retrieves completed todo's
+        [HttpGet("completed")]
+        public async Task<ActionResult<List<ToDo>>> CompletedToDos()
+        {
+            var tasks = await _context.ToDoList
+            .Where(x => x.IsCompleted == true)
+            .ToListAsync();
+
+            return tasks;
+        }
     }
 }
