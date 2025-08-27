@@ -1,0 +1,12 @@
+tr[b-9e07y3hacj], td[b-9e07y3hacj], tbody[b-9e07y3hacj]{
+    border: 1px solid black;
+}
+
+
+tr:nth-child(2)[b-9e07y3hacj]{
+    background-color: lightgray;
+}
+
+tr:hover[b-9e07y3hacj]{
+    background-color: grey;
+}

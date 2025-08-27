@@ -1031,3 +1031,4 @@
 /Users/jake/Desktop/ToDoApp/Todo_App/obj/Debug/net8.0/ref/Todo_App.dll
 /Users/jake/Desktop/ToDoApp/Todo_App/obj/Debug/net8.0/Todo_App.sourcelink.json
 /Users/jake/Desktop/ToDoApp/Todo_App/obj/Debug/net8.0/scopedcss/Pages/todolistview.razor.rz.scp.css
+/Users/jake/Desktop/ToDoApp/Todo_App/obj/Debug/net8.0/scopedcss/Pages/CompletedToDos.razor.rz.scp.css
