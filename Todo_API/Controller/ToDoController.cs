@@ -95,5 +95,22 @@ namespace Todo_API.Controllers
 
             return tasks;
         }
+
+        [HttpDelete("delete/{id}")]
+        public async Task<ActionResult<ToDo>> DeleteToDo(int Id)
+        {
+            var task = await _context.ToDoList.FindAsync(Id);
+
+            if (task == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                _context.ToDoList.Remove(task);
+                await _context.SaveChangesAsync();
+                return NoContent();
+            }
+        }
     }
 }

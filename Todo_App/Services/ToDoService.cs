@@ -72,4 +72,16 @@ public class ToDoService
         }
         return new List<ToDo>();
     }
+
+    public async Task<ToDo> DeleteToDo(int Id)
+    {
+        var response = await _httpclient.DeleteAsync($"api/ToDo/delete/{Id}");
+
+        if (response.IsSuccessStatusCode)
+        {
+            return null;
+        }
+        return null;
+    }
+
 }

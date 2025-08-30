@@ -30,6 +30,8 @@ else
 
         </EditForm>
 
+        <button class="btn btn-danger" @onclick="(() => DeleteToDo(Id))">Delete ToDo</button>
+
     </div>
     
 }
@@ -46,6 +48,13 @@ else
     public async Task GetToDo(int Id)
     {
         AppendToDo = await ToDoService.ShowToDoById(Id);
+    }
+    public async Task DeleteToDo(int Id)
+    {
+        await ToDoService.DeleteToDo(Id);
+        //redirect back to todo list once todo delete
+        NavigationManager.NavigateTo("/todolistview");
+        
     }
 
     public async Task UpdateToDo()
