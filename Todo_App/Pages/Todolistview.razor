@@ -34,11 +34,10 @@ else
 
                 int timeRemaining = Convert.ToInt32((task.dateTime - timenow).TotalDays);
 
-                rowColour = GetRowColour(timeRemaining);
-
+                //Purely for debug purposes **REMOVE WHEN NOT NEEDED**
                 Console.WriteLine($"TASKID:{task.Id} - {timeRemaining}");
 
-                <tr style="background-color: @rowColour"
+                <tr style="background-color: @GetRowColour(timeRemaining)"
                     @onclick='() => NavigationManager.NavigateTo($"/todoeditor/{task.Id}")'>
                     <td>@task.Id</td>
                     <td>@task.Name</td>
@@ -78,7 +77,8 @@ else
     timeRemaining > 21 ? "lightgreen" :
     timeRemaining > 14 ? "orange" :
     timeRemaining > 7 ? "lightcoral" :
-    timeRemaining < -1 ? "rgb(240, 54, 54)" :
+    timeRemaining > 0 ? "red" :
+    timeRemaining <= -1 ? "purple" :
     "white";
 
 
