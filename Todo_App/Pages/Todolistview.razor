@@ -31,76 +31,21 @@ else
             {
                 @* This is part of a thing that is being built to allow a soft color to be applied to the todos background
                 that will be either green,orange,red. it will allow a quick glance to see what is due soon. *@
-                double counter;
-                counter = (task.dateTime - timenow).TotalDays;
 
-                int timeRemaining = Convert.ToInt32(counter);
+                int timeRemaining = Convert.ToInt32((task.dateTime - timenow).TotalDays);
+
+                rowColour = GetRowColour(timeRemaining);
+
                 Console.WriteLine($"TASKID:{task.Id} - {timeRemaining}");
-                @if(timeRemaining > 22)
-                {
-                    Console.WriteLine($"{task.Id} has 21+ days remaining");
-                    <tr style="background-color: rgb(110, 30, 238);" @onclick='() => NavigationManager.NavigateTo($"/todoeditor/{task.Id}")'>
-                    <td>@task.Id</td>
-                    <td>@task.Name</td>
-                    <td>@task.dateTime</td>
-                    <td>@(task.IsCompleted == true ? "Yes" : "No")</td>
-                    <td>@timeRemaining</td>
-                    </tr>
-                }
-                else if(timeRemaining > 21)
-                {
-                    Console.WriteLine($"{task.Id} has 21 days remaining");
-                    <tr style="background-color: lightgreen;" @onclick='() => NavigationManager.NavigateTo($"/todoeditor/{task.Id}")'>
-                    <td>@task.Id</td>
-                    <td>@task.Name</td>
-                    <td>@task.dateTime</td>
-                    <td>@(task.IsCompleted == true ? "Yes" : "No")</td>
-                    <td>@timeRemaining</td>
-                    </tr>
-                }
-                else if(timeRemaining > 14)
-                {
-                    Console.WriteLine($"{task.Id} has 14 days remaining");
-                    <tr style="background-color: orange;" @onclick='() => NavigationManager.NavigateTo($"/todoeditor/{task.Id}")'>
-                    <td>@task.Id</td>
-                    <td>@task.Name</td>
-                    <td>@task.dateTime</td>
-                    <td>@(task.IsCompleted == true ? "Yes" : "No")</td>
-                    <td>@timeRemaining</td>
-                    </tr>
-                }
-                else if(timeRemaining > 7)
-                {
-                    Console.WriteLine($"{task.Id} has 7 days remaining");
-                    <tr style="background-color: lightcoral;" @onclick='() => NavigationManager.NavigateTo($"/todoeditor/{task.Id}")'>
-                    <td>@task.Id</td>
-                    <td>@task.Name</td>
-                    <td>@task.dateTime</td>
-                    <td>@(task.IsCompleted == true ? "Yes" : "No")</td>
-                    <td>@timeRemaining</td>
-                    </tr>
-                }
-                else if(timeRemaining < -1)
-                {
-                    Console.WriteLine($"{task.Id} is overdue");
-                    <tr style="background-color: rgb(240, 54, 54);" @onclick='() => NavigationManager.NavigateTo($"/todoeditor/{task.Id}")'>
-                    <td>@task.Id</td>
-                    <td>@task.Name</td>
-                    <td>@task.dateTime</td>
-                    <td>@(task.IsCompleted == true ? "Yes" : "No")</td>
-                    <td>@timeRemaining</td>
-                    </tr>
-                }
-                
 
-
-                @* <tr @onclick='() => NavigationManager.NavigateTo($"/todoeditor/{task.Id}")'>
+                <tr style="background-color: @rowColour"
+                    @onclick='() => NavigationManager.NavigateTo($"/todoeditor/{task.Id}")'>
                     <td>@task.Id</td>
                     <td>@task.Name</td>
                     <td>@task.dateTime</td>
                     <td>@(task.IsCompleted == true ? "Yes" : "No")</td>
                     <td>@timeRemaining</td>
-                </tr> *@
+                </tr>
 
             }
 
@@ -115,6 +60,8 @@ else
     public DateTime timenow = DateTime.Now;
     public List<ToDo> tasks { get; set; } = new List<ToDo>();
 
+    public string rowColour;
+
     public async Task LoadToDos()
     {
         tasks = await ToDoService.GetUncompletedToDos();
@@ -125,4 +72,14 @@ else
     {
         await LoadToDos();
     }
+
+    private string GetRowColour(double timeRemaining)
+    => timeRemaining > 22 ? "rgb(110, 30, 238)" :
+    timeRemaining > 21 ? "lightgreen" :
+    timeRemaining > 14 ? "orange" :
+    timeRemaining > 7 ? "lightcoral" :
+    timeRemaining < -1 ? "rgb(240, 54, 54)" :
+    "white";
+
+
 }
