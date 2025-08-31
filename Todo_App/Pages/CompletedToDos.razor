@@ -29,7 +29,8 @@ else
 
         <tbody>
 
-            @foreach (var task in tasks)
+            @foreach (var task in tasks.Where(x => string.IsNullOrEmpty(searchToDos) || 
+            x.Name.Contains(searchToDos, StringComparison.OrdinalIgnoreCase)).OrderBy(x => x.Id))
             {
                 <tr @onclick='() => NavigationManager.NavigateTo($"/todoeditor/{task.Id}")'>
                     <td>@task.Name</td>

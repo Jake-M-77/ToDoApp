@@ -31,11 +31,10 @@ else
 
         <tbody>
 
-            @foreach (var task in tasks.Where(x => string.IsNullOrEmpty(searchToDos) || x.Name.Contains(searchToDos, StringComparison.OrdinalIgnoreCase)))
+            @foreach (var task in tasks.Where(x => string.IsNullOrEmpty(searchToDos) || 
+            x.Name.Contains(searchToDos, StringComparison.OrdinalIgnoreCase)).OrderBy(x => x.Id))
             {
-                @* This is part of a thing that is being built to allow a soft color to be applied to the todos background
-                that will be either green,orange,red. it will allow a quick glance to see what is due soon. *@
-
+                
                 int timeRemaining = Convert.ToInt32((task.dateTime - timenow).TotalDays);
 
                 //Purely for debug purposes **REMOVE WHEN NOT NEEDED**
