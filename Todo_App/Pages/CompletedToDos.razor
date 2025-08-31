@@ -7,6 +7,10 @@
 
 <h1 style="text-align: center;">Your To-Do List</h1>
 
+<div>
+    <InputText @bind-Value="searchToDos" placeholder="Search Todos" />
+</div>
+
 @if (tasks == null)
 {
     <p>Awaiting todos</p>
@@ -17,7 +21,7 @@ else
         <thead style="border: 1px solid black; background-color: grey;">
             <tr>
                 <td>Taskname</td>
-                <td>Task Time</td>
+                <td>Task Due Date</td>
                 <td>Task Completed</td>
             </tr>
 
@@ -41,8 +45,12 @@ else
 
 
 
+
+
 @code {
     public List<ToDo> tasks { get; set; } = new List<ToDo>();
+
+    public string searchToDos {get; set;}
 
     public async Task LoadToDos()
     {
