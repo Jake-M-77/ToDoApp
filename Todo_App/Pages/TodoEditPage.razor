@@ -61,8 +61,6 @@ else
 
     public async Task UpdateToDo()
     {
-        AppendToDo.dateTime = DateTime.SpecifyKind(AppendToDo.dateTime, DateTimeKind.Local).ToUniversalTime();
-
         var response = await ToDoService.UpdateToDo(AppendToDo);
         if(response)
         {

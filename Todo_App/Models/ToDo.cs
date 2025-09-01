@@ -6,10 +6,10 @@ public class ToDo
     [Required]
     public string Name { get; set; }
 
-    public DateTime dateTime { get; set; }
+    public DateOnly dateTime { get; set; }
 
-    public bool IsCompleted { get; set; } 
+    public bool IsCompleted { get; set; }
 
-    public string? Notes { get; set; }
+    public string? Notes { get; set; } = null;
 
 }

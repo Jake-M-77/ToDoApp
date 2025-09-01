@@ -33,10 +33,9 @@ else
 
             @foreach (var task in tasks.Where(x => string.IsNullOrEmpty(searchToDos) || 
             x.Name.Contains(searchToDos, StringComparison.OrdinalIgnoreCase)).OrderBy(x => x.Id))
-            {
+            {                
+                int timeRemaining = Convert.ToInt32(task.dateTime.DayNumber - timenow.DayNumber);
                 
-                int timeRemaining = Convert.ToInt32((task.dateTime - timenow).TotalDays);
-
                 //Purely for debug purposes **REMOVE WHEN NOT NEEDED**
                 Console.WriteLine($"TASKID:{task.Id} - {timeRemaining}");
 
@@ -59,7 +58,7 @@ else
 
 
 @code {
-    public DateTime timenow = DateTime.Now;
+    public DateOnly timenow = DateOnly.FromDateTime(DateTime.UtcNow);
     public List<ToDo> tasks { get; set; } = new List<ToDo>();
 
     public string searchToDos { get; set; }

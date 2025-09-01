@@ -1,6 +1,8 @@
 @page "/launchpad"
 @inject NavigationManager NavigationManager
 
+@inject ToDoService ToDoService
+
 <PageTitle>Launchpad</PageTitle>
 
 <h1 style="text-align: center;">Launchpad</h1>
@@ -19,9 +21,51 @@
 
 </div>
 
+<br>
+
+<h2>Todos due today</h2>
+
+
+<table>
+    <thead style="background-color: lightgray; border: 1px solid black">
+        <tr>
+            <td>Todo Name</td>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach(var task in Todos_due_today.Where(x => x.dateTime == timenow))
+        {
+            
+            <tr style="border: 1px solid black;">
+
+                <td>@task.Name</td>
+
+            </tr>
+
+        }
+
+        
+    </tbody>
+</table>
+
 
 @code{
     string username = "Invalid!";
+    public List<ToDo> Todos_due_today = new List<ToDo>();
 
+    //public DateTime timenow = DateTime.UtcNow;
+
+    public DateOnly timenow = DateOnly.FromDateTime(DateTime.Now);
+    
+    
+
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        Todos_due_today = await ToDoService.ShowAllToDosAsync();
+    }
     
 }

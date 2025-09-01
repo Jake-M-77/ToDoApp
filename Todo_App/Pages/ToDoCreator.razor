@@ -28,13 +28,12 @@
 
 @code{
     ToDo newTodo = new ToDo{
-        dateTime = DateTime.UtcNow,
+        dateTime = DateOnly.FromDateTime(DateTime.UtcNow),
         IsCompleted = false,
     };
 
     public async Task submitToDo()
     {
-        newTodo.dateTime = DateTime.SpecifyKind(newTodo.dateTime, DateTimeKind.Local).ToUniversalTime();
 
         await ToDoService.CreateToDo(newTodo);
     }
