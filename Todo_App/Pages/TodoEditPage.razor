@@ -12,6 +12,8 @@ else
     <div>
 
         <EditForm Model="AppendToDo" OnValidSubmit="UpdateToDo">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
 
         <label>To-Do Name:</label>
             <InputText @bind-Value="AppendToDo.Name"/>
