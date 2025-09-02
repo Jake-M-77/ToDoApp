@@ -1,6 +1,8 @@
 @page "/todocreator"
 @inject ToDoService ToDoService
 
+@inject NavigationManager NavigationManager
+
 <PageTitle>To-Do Creator</PageTitle>
 
 <h1 style="text-align: center;">To Do Creator</h1>
@@ -36,5 +38,7 @@
     {
 
         await ToDoService.CreateToDo(newTodo);
+        NavigationManager.NavigateTo("/launchpad");
+
     }
 }
